@@ -1,4 +1,5 @@
 using JobTrackerApi.Data;
+using JobTrackerApi.Models;
 using JobTrackerApi.Repositories;
 using Microsoft.EntityFrameworkCore;
 
@@ -29,3 +30,44 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
 app.Run();
+
+SeedDatabase(app);
+
+void SeedDatabase(IHost app)
+{
+    using var scope = app.Services.CreateScope();
+    var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    db.Database.Migrate();
+
+    if (!db.JobApplications.Any())
+    {
+        db.JobApplications.AddRange(
+            new JobApplication
+            {
+                CompanyName = "BlueSky",
+                Position = "Backend Developer",
+                Status = "Applied",
+                DateApplied = DateTime.UtcNow.AddDays(-3)
+            },
+            new JobApplication
+            {
+                CompanyName = "Datacom",
+                Position = "Full Stack Developer",
+                Status = "Interview",
+                DateApplied = DateTime.UtcNow.AddDays(-7)
+            },
+            new JobApplication
+            {
+                CompanyName = "IWork",
+                Position = "Software Engineer",
+                Status = "Offer",
+                DateApplied = DateTime.UtcNow.AddDays(-1)
+            }
+        );
+
+        db.SaveChanges();
+    }
+}
+
+
+

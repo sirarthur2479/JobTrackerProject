@@ -5,13 +5,18 @@
 **/*.suo
 **/*.userprefs
 **/*.csproj.user
-**/filecontentindex/
-**/DesignTimeBuild/
-**/v17/
-**/ProjectEvaluation/
+
 
 # --- DATABASE ---
+*.db
+*.db-shm
+*.db-wal
+*.db-journal
+
+
+# --- Keep Migration folders in the repository ---
 !Migrations/**
+
 
 # --- FRONTEND (React) ---
 node_modules/
@@ -23,6 +28,7 @@ dist/
 *.log
 package-lock.json
 yarn.lock
+
 
 # --- GLOBAL ---
 .vscode/
@@ -37,3 +43,10 @@ Thumbs.db
 copilot*.json
 copilot*.log
 **/CopilotIndices
+
+
+# IDE/Visual Studio temp folders
+**/DesignTimeBuild/
+**/v17/
+**/ProjectEvaluation/
+**/filecontentindex/
