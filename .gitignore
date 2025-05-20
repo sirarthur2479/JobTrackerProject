@@ -1,0 +1,32 @@
+# --- BACKEND (.NET) ---
+**/bin/
+**/obj/
+**/*.user
+**/*.suo
+**/*.userprefs
+**/*.csproj.user
+**/filecontentindex/
+
+# --- FRONTEND (React) ---
+node_modules/
+build/
+dist/
+.env
+.env.local
+.npmrc
+*.log
+package-lock.json
+yarn.lock
+
+# --- GLOBAL ---
+.vscode/
+.DS_Store
+Thumbs.db
+*.swp
+*.tmp
+
+
+# GitHub Copilot
+.vscode/copilot*
+copilot*.json
+copilot*.log
