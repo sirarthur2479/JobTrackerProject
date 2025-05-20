@@ -6,6 +6,12 @@
 **/*.userprefs
 **/*.csproj.user
 **/filecontentindex/
+**/DesignTimeBuild/
+**/v17/
+**/ProjectEvaluation/
+
+# --- DATABASE ---
+!Migrations/**
 
 # --- FRONTEND (React) ---
 node_modules/
@@ -30,3 +36,4 @@ Thumbs.db
 .vscode/copilot*
 copilot*.json
 copilot*.log
+**/CopilotIndices
