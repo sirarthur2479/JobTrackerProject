@@ -96,7 +96,7 @@ namespace JobTrackerApi.Tests.Controllers
             // Assert
             var createdAt = Assert.IsType<CreatedAtActionResult>(result.Result);
             var app = Assert.IsType<JobApplication>(createdAt.Value);
-            Assert.Equal("Visa", app.CompanyName);
+            Assert.Equal("Datacom", app.CompanyName);
             Assert.Equal("Applied", app.Status); // Should default to "Applied"
         }
 
@@ -163,8 +163,14 @@ namespace JobTrackerApi.Tests.Controllers
             Assert.Contains(results, r => r.MemberNames.Contains(nameof(JobApplication.CompanyName)));
         }
 
+        [Fact]
+        public async Task Delete_ReturnsNotFound_WhenApplicationDoesNotExist()
+        {
+            _mockRepo.Setup(r => r.GetByIdAsync(1)).ReturnsAsync((JobApplication?)null);
 
+            var result = await _controller.Delete(1);
 
-
+            Assert.IsType<NotFoundResult>(result);
+        }
     }
 }

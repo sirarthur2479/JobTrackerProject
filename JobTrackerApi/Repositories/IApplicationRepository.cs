@@ -10,6 +10,7 @@ namespace JobTrackerApi.Repositories
         Task<JobApplication?> GetByIdAsync(int id);
         Task AddAsync(JobApplication application);
         Task Update(JobApplication application);
+        Task Delete(JobApplication application);
         Task SaveChangesAsync();
     }
 }

@@ -36,6 +36,12 @@ namespace JobTrackerApi.Repositories
             return Task.CompletedTask;
         }
 
+        public Task Delete(JobApplication application)
+        {
+            _context.JobApplications.Remove(application);
+            return Task.CompletedTask;
+        }
+
         public async Task SaveChangesAsync()
         {
             await _context.SaveChangesAsync();
