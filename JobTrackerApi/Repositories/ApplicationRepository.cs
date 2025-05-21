@@ -30,9 +30,10 @@ namespace JobTrackerApi.Repositories
             await _context.JobApplications.AddAsync(application);
         }
 
-        public async Task UpdateAsync(JobApplication application)
+        public Task Update(JobApplication application)
         {
             _context.JobApplications.Update(application);
+            return Task.CompletedTask;
         }
 
         public async Task SaveChangesAsync()

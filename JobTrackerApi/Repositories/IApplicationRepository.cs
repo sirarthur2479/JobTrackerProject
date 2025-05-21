@@ -9,7 +9,7 @@ namespace JobTrackerApi.Repositories
         Task<IEnumerable<JobApplication>> GetAllAsync();
         Task<JobApplication?> GetByIdAsync(int id);
         Task AddAsync(JobApplication application);
-        Task UpdateAsync(JobApplication application);
+        Task Update(JobApplication application);
         Task SaveChangesAsync();
     }
 }

@@ -63,7 +63,7 @@ namespace JobTrackerApi.Controllers
             // Update only relevant fields
             existing.Status = updatedApp.Status ?? existing.Status;
 
-            await _repository.UpdateAsync(existing);
+            await _repository.Update(existing);
             await _repository.SaveChangesAsync();
 
             return NoContent();
