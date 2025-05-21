@@ -52,15 +52,22 @@ namespace JobTrackerApi.Controllers
             return CreatedAtAction(nameof(GetById), new { id = application.Id }, application);
         }
 
-        // PUT /applications/{id} - Update status (optional)
+        // PUT /applications/{id} - Update
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, JobApplication updatedApp)
         {
+            Console.WriteLine($"[PUT] Received update for ID {id}: " +
+                $"Company={updatedApp.CompanyName}, " +
+                $"Position={updatedApp.Position}, " +
+                $"Status={updatedApp.Status}");
+
             var existing = await _repository.GetByIdAsync(id);
             if (existing == null)
                 return NotFound();
 
-            // Update only relevant fields
+            // Update all mutable fields
+            existing.CompanyName = updatedApp.CompanyName;
+            existing.Position = updatedApp.Position;
             existing.Status = updatedApp.Status ?? existing.Status;
 
             await _repository.Update(existing);

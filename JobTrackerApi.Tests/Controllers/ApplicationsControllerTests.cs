@@ -132,8 +132,8 @@ namespace JobTrackerApi.Tests.Controllers
             var updated = new JobApplication
             {
                 Id = 1,
-                CompanyName = "Datacom",
-                Position = "Backend Dev",
+                CompanyName = "Datacom2",
+                Position = "Front Dev",
                 Status = "Interview"
             };
 

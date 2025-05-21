@@ -17,6 +17,16 @@ builder.Services.AddSwaggerGen();
 // Dependency Injection for Repositories
 builder.Services.AddScoped<IApplicationRepository, ApplicationRepository>();
 
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.WithOrigins("http://localhost:3000") // React app
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
 
 // Enable Swagger middleware
@@ -26,6 +36,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors(); // Enable CORS
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();

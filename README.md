@@ -32,7 +32,7 @@ How to Run the API:
    dotnet run
 
 5. Visit Swagger UI:
-   http://localhost:<port>/swagger
+   http://localhost:5005/swagger
 
 Note: The app uses SQLite (jobtracker.db) and applies migrations + seed data automatically on startup.
 
@@ -83,3 +83,59 @@ Assumptions
 - No authentication or authorization is required
 - Database is local and resets if deleted
 - Frontend (React or Angular) will consume the API
+
+
+
+Job Application Tracker - Frontend (React)
+==========================================
+
+Description
+-----------
+
+This is the React frontend for the Job Application Tracker. It displays job applications in a table with support for add, edit, delete, pagination, and validation.
+
+Tech Stack
+----------
+- React (Create React App)
+- Axios for API calls
+- CSS for styling (responsive layout)
+- ESLint + Prettier for linting and formatting
+
+Requirements
+------------
+- Node.js (v16 or later)
+- npm
+
+How to Run
+----------
+1. Navigate to the frontend project folder:
+    cd JobTrackerUi
+
+2. Install dependencies:
+    npm install
+
+3. Start the development server:
+    npm start
+
+4. The app will open at:
+    http://localhost:3000
+
+Notes
+-----
+- App supports responsive layout for mobile and desktop.
+- Table always displays 5 rows per page.
+- Validation errors are shown clearly for both add and edit actions when there are empty fields in the form.
+- Pagination state is preserved across actions (add = jump to last page, others = stay current page, load = jump to page 1).
+
+
+Assumptions
+-----------
+
+- Users interact with the application through a simple, single-user frontend.
+- No authentication or user roles are implemented; all data is globally accessible.
+- The backend is not persisted using SQLite.
+- The application will run locally; no deployment configuration is included.
+- Date applied is set automatically in the backend and not user-editable.
+- Form validation ensures required fields are provided; no advanced validation (e.g., regex, length limits) is enforced.
+- Table displays 5 rows per page for consistency; pagination is client-side.
+- API endpoints follow RESTful conventions and return standard HTTP codes.
