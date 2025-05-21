@@ -44,7 +44,7 @@ function App() {
       const total = data.length;
       const rowsPerPage = 5;
       const lastPage = Math.ceil(total / rowsPerPage);
-      setCurrentPage(lastPage); // ✅ Jump to last page
+      setCurrentPage(lastPage); // Jump to last page
 
       return null;
     } catch (err) {
