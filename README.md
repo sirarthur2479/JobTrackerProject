@@ -3,6 +3,8 @@ Job Application Tracker – Backend API
 
 This is the backend API for the Job Application Tracker, built with ASP.NET Core Web API and Entity Framework Core (using SQLite). 
 It provides RESTful endpoints for managing job applications — including creating, updating, listing, and deleting.
+Development done in Visual Studio 2022
+Version control done in GitHub
 
 Technologies Used
 -----------------
@@ -82,7 +84,7 @@ Assumptions
 -----------
 - No authentication or authorization is required
 - Database is local and resets if deleted
-- Frontend (React or Angular) will consume the API
+- Frontend (React) will consume the API
 
 
 
@@ -91,8 +93,8 @@ Job Application Tracker - Frontend (React)
 
 Description
 -----------
-
 This is the React frontend for the Job Application Tracker. It displays job applications in a table with support for add, edit, delete, pagination, and validation.
+Development done in VSCode
 
 Tech Stack
 ----------
@@ -124,7 +126,7 @@ Notes
 -----
 - App supports responsive layout for mobile and desktop.
 - Table always displays 5 rows per page.
-- Validation errors are shown clearly for both add and edit actions when there are empty fields in the form.
+- Validation errors are shown clearly for both add and edit actions when submitting empty fields in the form or table.
 - Pagination state is preserved across actions (add = jump to last page, others = stay current page, load = jump to page 1).
 
 
@@ -133,7 +135,7 @@ Assumptions
 
 - Users interact with the application through a simple, single-user frontend.
 - No authentication or user roles are implemented; all data is globally accessible.
-- The backend is not persisted using SQLite.
+- The backend is persisted using SQLite.
 - The application will run locally; no deployment configuration is included.
 - Date applied is set automatically in the backend and not user-editable.
 - Form validation ensures required fields are provided; no advanced validation (e.g., regex, length limits) is enforced.
