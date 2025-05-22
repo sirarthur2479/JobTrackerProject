@@ -3,7 +3,7 @@ Job Application Tracker – Backend API
 
 This is the backend API for the Job Application Tracker, built with ASP.NET Core Web API and Entity Framework Core (using SQLite). 
 It provides RESTful endpoints for managing job applications — including creating, updating, listing, and deleting.
-Development done in Visual Studio 2022
+Development done in Visual Studio 2022, PowerShell and Chrome
 Version control done in GitHub
 
 Technologies Used
@@ -94,7 +94,7 @@ Job Application Tracker - Frontend (React)
 Description
 -----------
 This is the React frontend for the Job Application Tracker. It displays job applications in a table with support for add, edit, delete, pagination, and validation.
-Development done in VSCode
+Development done in VSCode, PowerShell and Chrome
 
 Tech Stack
 ----------
@@ -113,8 +113,9 @@ How to Run
 1. Navigate to the frontend project folder:
     cd JobTrackerUi
 
-2. Install dependencies:
-    npm install
+2. Install dependencies: 
+    (Might need to bypass PowerShell's execution policy : Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass)
+    npm install 
 
 3. Start the development server:
     npm start
